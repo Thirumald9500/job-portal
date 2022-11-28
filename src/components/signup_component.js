@@ -15,28 +15,12 @@ export default class SignUp extends Component {
     e.preventDefault();
     const { fname, lname, email, password } = this.state;
     console.log(fname, lname, email, password);
-    fetch("http://localhost:5000/register", {
-      method: "POST",
-      crossDomain: true,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        fname,
-        email,
-        lname,
-        password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data, "userRegister");
-      });
+  
   }
   render() {
     return (
+      <div className="auth-wrapper">
+          <div className="auth-inner">
       <form onSubmit={this.handleSubmit}>
         <h3>Sign Up</h3>
 
@@ -88,7 +72,7 @@ export default class SignUp extends Component {
         <p className="forgot-password text-right">
           Already registered <a href="/sign-in">sign in?</a>
         </p>
-      </form>
+      </form></div></div>
     );
   }
 }
